@@ -96,7 +96,7 @@ public class KeyValueReader implements UsernameReader {
 
     @Override
     public void readUsernames(@NotNull Set<String> usernames) {
-        Pattern pattern = Pattern.compile("" + usernameKeyword +
+        Pattern pattern = Pattern.compile(usernameKeyword +
                         keyValueDelimiter + "\\s*|" +
                 delimiter + "\\s*");
         Matcher matcher = Pattern.compile(usernameKeyword +
@@ -113,7 +113,7 @@ public class KeyValueReader implements UsernameReader {
     @NotNull
     @Override
     public Iterator<String> iterator() {
-        final Pattern pattern = Pattern.compile("" + usernameKeyword +
+        final Pattern pattern = Pattern.compile(usernameKeyword +
                 keyValueDelimiter + "\\s*|" +
                 delimiter + "\\s*");
         final Matcher matcher = Pattern.compile(usernameKeyword +
@@ -133,6 +133,7 @@ public class KeyValueReader implements UsernameReader {
 
             @Override
             public void remove() {
+                throw new UnsupportedOperationException();
             }
         };
     }
